@@ -9,10 +9,7 @@
     canvas {
   border: 2px solid black;
 }
-
 #canvas1 {
-  width: 135px;
-  height: 135px;
   display: inline-block;
   margin-top: auto;
   margin-left:90px auto;
@@ -23,33 +20,78 @@
   margin-left: 175px;
 }
 #canvas2{
-  width: 405px;
-  height: 405px;
   display: inline-block;
   margin-left: 10px;
 }
 #canvas3 {
-  width: 300px;
-  height: 50px;
   display: block;
   margin: 20px auto;
 }
+#console{
+  font-size: medium;
+  font-family: monospace;
+  position: absolute;
+  left: 50px;
+  top: 40px;
+}
     </style>
-  </head>
-  <body>
-    <div id="canvas-container">
-      <canvas id="canvas1"></canvas>
-      <canvas id="canvas2"></canvas>
-      </div>
-    <canvas id="canvas3"></canvas>
-    <script >
-const sample = document.getElementById("canvas1")
-  const sampleTX = sample.getContext('2d')
-const generator = document.getElementById("canvas2")
-  const genTX = generator.getContext('2d')
-const selector = document.getElementById("canvas3")
-  const selectTX = selector.getContext('2d')
 
-    </script>
+  </head>
+  <body>  
+        <p id="console">console</p>
+    <div id="canvas-container">
+
+      <canvas id="canvas1"  width= "135px" height= "135px"></canvas>
+      <canvas id="canvas2"width= "405px" height= "405px"></canvas>
+      </div>
+    <canvas id="canvas3" width= "400px" height= "75px"></canvas>
+<script >
+const sample = document.getElementById("canvas1")
+const sampleCT = sample.getContext('2d')
+sampleCT.translate(0.5, 0.5)
+sampleCT.font = "10px Monospace";
+const generator = document.getElementById("canvas2")
+const genCT = generator.getContext('2d')
+genCT.translate(0.5, 0.5)
+genCT.font = "10px Monospace";
+const tools = document.getElementById("canvas3")
+const toolCT = tools.getContext('2d')
+toolCT.translate(0.5, 0.5)
+toolCT.font = "10px Monospace";
+const console = document.getElementById("console")
+var allPixel = []
+class pixel {
+  constructor(idX, idY, x, y, size) {
+    this.idX = idX
+    this.idY = idY
+    this.x = x
+    this.y = y
+    this.size = size
+  }
+
+}
+console.innerText = randomColor()
+
+for (let y = 0; y < sample.clientHeight; y += 15) {
+  for (let x = 0; x < sample.clientWidth; x += 15) {
+    allPixel.push(new pixel(x / 15, y / 15, x, y, 15))
+    sampleCT.beginPath();
+    sampleCT.moveTo(x, y);
+    sampleCT.lineTo(x + 15, y);
+    sampleCT.strokeStyle = randomColor()
+    sampleCT.stroke();
+    sampleCT.beginPath();
+    sampleCT.moveTo(x, y);
+    sampleCT.lineTo(x, y + 15);
+    sampleCT.strokeStyle = "black"
+    sampleCT.stroke();
+  }
+}
+console.innerText = allPixel[0].idY
+
+function randomColor() {
+  return "#" + (Math.floor(Math.random() * 16777215).toString(16));
+}
+</script>
   </body>
 </html>
