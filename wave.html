@@ -6,45 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wave</title>
     <style>
+    p {
+      font-size: medium;
+      font-family: monospace;
+      position: absolute;
+    }
     canvas {
-  border: 2px solid black;
-}
-#canvas1 {
-  display: inline-block;
-  margin-top: auto;
-  margin-left:90px auto;
-}
-#canvas-container {
-  display: flex;
-  justify-content: center;
-  margin-left: 175px;
-}
-#canvas2{
-  display: inline-block;
-  margin-left: 10px;
-}
-#canvas3 {
-  display: block;
-  margin: 20px auto;
-}
-#console{
-  font-size: medium;
-  font-family: monospace;
-  position: absolute;
-  left: 50px;
-  top: 40px;
-}
+      border: 2px solid black;
+    }
+    #canvas1 {
+      display: inline-block;
+      margin-top: auto;
+    }
+    #canvas-container {
+      display: flex;
+      justify-content: center;
+    }
+    #canvas2 {
+      display: inline-block;
+      margin-left: 10px;
+    }
+    #toolBox {
+      display: flex;
+      justify-content: center;
+    }
+    #console {
+      left: 50px;
+      top: 500px;
+    }
     </style>
 
   </head>
   <body>  
         <p id="console">console</p>
     <div id="canvas-container">
-
-      <canvas id="canvas1"  width= "135px" height= "135px"></canvas>
-      <canvas id="canvas2"width= "405px" height= "405px"></canvas>
+      <canvas id="canvas1"  width= "400" height= "400" onmousedown="mouseDown(event)" onmouseup="mouseUp(event)" onmousemove="mousePosition(event)"></canvas>
+      <canvas id="canvas2"width= "400px" height= "400px"></canvas>
       </div>
-    <canvas id="canvas3" width= "400px" height= "75px"></canvas>
+    <div id="toolBox" width= "400px" height= "75px">
+
+      <p id="mouseCON">mouseCON</p>
+    </div>
 <script >
 const sample = document.getElementById("canvas1")
 const sampleCT = sample.getContext('2d')
@@ -54,43 +56,53 @@ const generator = document.getElementById("canvas2")
 const genCT = generator.getContext('2d')
 genCT.translate(0.5, 0.5)
 genCT.font = "10px Monospace";
-const tools = document.getElementById("canvas3")
-const toolCT = tools.getContext('2d')
-toolCT.translate(0.5, 0.5)
-toolCT.font = "10px Monospace";
+//rip old toolbox, changed for very profesional reasons
 const console = document.getElementById("console")
-var allPixel = []
-class pixel {
+const mouseCON =  document.getElementById("mouseCON")
+const districtSize= 400/4
+var allDistrict = []
+
+var mouseX;
+var mouseY;
+var mouseDrag = false;
+mouseCON.innerHTML = sample.offsetLeft
+class district{
   constructor(idX, idY, x, y, size) {
     this.idX = idX
     this.idY = idY
     this.x = x
     this.y = y
     this.size = size
-  }
+  }}
+  
 
-}
+
 console.innerText = randomColor()
 
-for (let y = 0; y < sample.clientHeight; y += 15) {
-  for (let x = 0; x < sample.clientWidth; x += 15) {
-    allPixel.push(new pixel(x / 15, y / 15, x, y, 15))
-    sampleCT.beginPath();
-    sampleCT.moveTo(x, y);
-    sampleCT.lineTo(x + 15, y);
-    sampleCT.strokeStyle = randomColor()
-    sampleCT.stroke();
-    sampleCT.beginPath();
-    sampleCT.moveTo(x, y);
-    sampleCT.lineTo(x, y + 15);
-    sampleCT.strokeStyle = "black"
-    sampleCT.stroke();
+for (let y = 0; y < sample.clientHeight; y += districtSize) {
+  for (let x = 0; x < sample.clientWidth; x += districtSize) {
+    allDistrict.push(new district(x / districtSize, y / districtSize, x, y, districtSize))
+    sampleCT.fillStyle = randomColor()
+    sampleCT.fillRect(x,y,districtSize,districtSize)
+
   }
 }
-console.innerText = allPixel[0].idY
+console.innerText = (Math.sqrt(allDistrict.length))+" = "+sample.clientWidth+"/"+districtSize 
 
 function randomColor() {
   return "#" + (Math.floor(Math.random() * 16777215).toString(16));
+}
+//Mouse stuf<lets hope this dosen't take as long as it usually dose>
+function mousePosition(e) {
+	mouseX = e.clientX - sample.offsetLeft
+	mouseY = e.clientY - sample.offsetTop
+	mouseCON.innerHTML = " x is " + mouseX + " y is " + mouseY+ mouseDrag;
+}
+function mouseUp(e) {
+  mouseDrag = false
+}
+function mouseDown(e) {
+  mouseDrag = true
 }
 </script>
   </body>
