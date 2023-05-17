@@ -56,81 +56,81 @@
     </div>
 <script >
 const sample = document.getElementById("canvas1")
-const sampleCT = sample.getContext('2d')
-sampleCT.translate(0.5, 0.5)
-sampleCT.font = "30px Ariel ";
-const generator = document.getElementById("canvas2")
-const genCT = generator.getContext('2d')
-genCT.translate(0.5, 0.5)
-genCT.font = "10px monospace";
-//rip old toolbox, changed for very profesional reasons
-const console = document.getElementById("console")
-const mouseCON =  document.getElementById("mouseCON")
-const districtSize= 400/4
-const districtBorder = 3
-const pixelBorder = 1
-var allDistrict = []
-
-mouseCON.innerHTML = sample.offsetLeft
-class district {
-  constructor(idX, idY, x, y, size) {
-    this.idX = idX
-    this.idY = idY
-    this.x = x
-    this.y = y
-    this.size = size
-    this.allPixel = []
-   // sampleCT.strokeText(this.idX+','+this.idY, this.x, this.y+20);
-    for (let y = this.x; y < districtSize; y += districtSize/8) {
-      for (let x = this.y; x < districtSize; x += districtSize/8) {
-        //the array will hold colors not classes
+  const sampleCT = sample.getContext('2d')
+  sampleCT.translate(0.5, 0.5)
+  sampleCT.font = "15px Ariel  ";
+  const generator = document.getElementById("canvas2")
+  const genCT = generator.getContext('2d')
+  genCT.translate(0.5, 0.5)
+  genCT.font = "10px monospace";
+  //rip old toolbox, changed for very profesional reasons
+  const console = document.getElementById("console")
+  const mouseCON = document.getElementById("mouseCON")
+  const districtSize = 400 / 4
+  const districtBorder = 3
+  const pixelBorder = 1
+  var allDistrict = []
+  class district {
+    constructor(idX, idY, x, y, size) {
+      this.idX = idX
+      this.idY = idY
+      this.x = x
+      this.y = y
+      this.size = size
+      this.allPixel = []
+      sampleCT.strokeText(this.idX + ',' + this.idY, this.x, this.y + 20);
+      for (let y = this.x; y < districtSize; y += districtSize / 8) {
+        for (let x = this.y; x < districtSize; x += districtSize / 8) {
+          //the array will hold colors not classes
+        }
       }
     }
   }
-}
-for (let y = 0; y < sample.clientHeight; y += districtSize) {
-  for (let x = 0; x < sample.clientWidth; x += districtSize) {
-    allDistrict.push(new district(x / districtSize, y / districtSize, x, y, districtSize-1))
-    sampleCT.fillStyle = randomColor()
-   sampleCT.fillRect(x,y,districtSize,districtSize)
-    drawLine(sampleCT,"black",districtBorder,x,y,x+districtSize,y)
-    drawLine(sampleCT,"black",districtBorder,x,y,x,y+districtSize)
+  for (let y = 0; y < sample.clientHeight; y += districtSize) {
+    for (let x = 0; x < sample.clientWidth; x += districtSize) {
+      allDistrict.push(new district(x / districtSize, y / districtSize, x, y, districtSize - 1))
+      sampleCT.fillStyle = randomColor()
+      //sampleCT.fillRect(x,y,districtSize,districtSize)
+      drawLine(sampleCT, "black", districtBorder, x, y, x + districtSize, y)
+      drawLine(sampleCT, "black", districtBorder, x, y, x, y + districtSize)
+    }
   }
-}
-console.innerText = allDistrict[4].y
-
-function randomColor() {
-  return "#" + (Math.floor(Math.random() * 16777215).toString(16));
-}
-function drawLine(ctx,color,width,x1,y1,x2,y2) {
-  ctx.lineWidth = width;
-ctx.strokeStyle = color;
-ctx.moveTo(x1, y1);
-ctx.lineTo(x2, y2);
-ctx.stroke();
-}
-//Mouse stuf<lets hope this dosen't take as long as it usually dose>
+  console.innerText = allDistrict[4].y
+  
+  function randomColor() {
+    return "#" + (Math.floor(Math.random() * 16777215).toString(16));
+  }
+  
+  function drawLine(ctx, color, width, x1, y1, x2, y2) {
+    ctx.lineWidth = width;
+    ctx.strokeStyle = color;
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+  }
+  //Mouse stuf<lets hope this dosen't take as long as it usually dose>
   var mouseDistX;
-var mouseDistY;
-var mouseDistID;
-var mouseDrag = false;
-function mousePosition(e) {
-	mouseDistX = Math.floor((e.clientX - sample.offsetLeft)/(districtSize))
-	mouseDistY = Math.floor((e.clientY - sample.offsetTop)/(districtSize))
-  mouseDistID = (mouseDistY*4)+mouseDistX 
-	mouseCON.innerHTML = " x is " + mouseDistX + " y is " + mouseDistY+ mouseDrag+mouseDistID;
-}
-function mouseUp(e) {
-  mouseDrag = false
-}
-function mouseDown(e) {
-  mouseDrag = true
-}
-document.onkeydown = keypress; 
-  function keypress(event) {mouseCON.innerHTML=event.key
+  var mouseDistY;
+  var mouseDistID;
+  var mouseDrag = false;
   
+  function mousePosition(e) {
+    mouseDistX = Math.floor((e.clientX - sample.offsetLeft) / (districtSize))
+    mouseDistY = Math.floor((e.clientY - sample.offsetTop) / (districtSize))
+    mouseDistID = (mouseDistY * 4) + mouseDistX
+    mouseCON.innerHTML = " x is " + mouseDistX + " y is " + mouseDistY + mouseDrag + mouseDistID;
+  }
+  function mouseUp(e) {
+    mouseDrag = false
+  }
+  function mouseDown(e) {
+    mouseDrag = true
+  }
   
-}
+  document.onkeydown = keypress;
+  function keypress(event) {
+    mouseCON.innerHTML = event.key
+  }
 </script>
   </body>
 </html>
