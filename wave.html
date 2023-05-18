@@ -113,7 +113,7 @@ const sample = document.getElementById("canvas1")
     console.innerText="jigs up"
     for (let i = 0; i < allDistrict.length; i++) {
       let district = allDistrict[i];
-      for (let Pix = 0; Pix < district.allPixel.length; index++) {
+      for (let Pix = 0; Pix < district.allPixel.length; Pix++) {
         let CurntPxl = district.allPixel[Pix];
         sampleCT.fillStyle = CurntPxl;
         sampleCT.fillRect(((Pix%8)*districtSize/8)+district.x,Math.floor(Pix/8*districtSize)*districtSize/8+district.y,districtSize/8,districtSize/8)
