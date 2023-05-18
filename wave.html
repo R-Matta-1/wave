@@ -40,9 +40,7 @@
   </head>
   <body>  
         <p id="console">console</p>
-
     <div id="canvas-container">
-
       <canvas id="canvas1"  width= "400" height= "400" 
       onmousedown="mouseDown(event)"
        onmouseup="mouseUp(event)"
@@ -58,7 +56,7 @@
 const sample = document.getElementById("canvas1")
   const sampleCT = sample.getContext('2d')
   sampleCT.translate(0.5, 0.5)
-  sampleCT.font = "15px Ariel  ";
+  sampleCT.font = "30px Verdana  ";
   const generator = document.getElementById("canvas2")
   const genCT = generator.getContext('2d')
   genCT.translate(0.5, 0.5)
@@ -70,6 +68,11 @@ const sample = document.getElementById("canvas1")
   const districtBorder = 3
   const pixelBorder = 1
   var allDistrict = []
+  var mouseDistX=0;
+  var mouseDistY=0;
+  var mouseDistID=0;
+  var mouseDrag = false;
+ 
   class district {
     constructor(idX, idY, x, y, size) {
       this.idX = idX
@@ -78,10 +81,11 @@ const sample = document.getElementById("canvas1")
       this.y = y
       this.size = size
       this.allPixel = []
+   
       sampleCT.strokeText(this.idX + ',' + this.idY, this.x, this.y + 20);
       for (let y = this.x; y < districtSize; y += districtSize / 8) {
         for (let x = this.y; x < districtSize; x += districtSize / 8) {
-          //the array will hold colors not classes
+         this.allPixel.push("#789")
         }
       }
     }
@@ -89,18 +93,15 @@ const sample = document.getElementById("canvas1")
   for (let y = 0; y < sample.clientHeight; y += districtSize) {
     for (let x = 0; x < sample.clientWidth; x += districtSize) {
       allDistrict.push(new district(x / districtSize, y / districtSize, x, y, districtSize - 1))
-      sampleCT.fillStyle = randomColor()
-      //sampleCT.fillRect(x,y,districtSize,districtSize)
-      drawLine(sampleCT, "black", districtBorder, x, y, x + districtSize, y)
-      drawLine(sampleCT, "black", districtBorder, x, y, x, y + districtSize)
+    
+
+      drawLine(sampleCT, "black",5, x, y, x + districtSize, y)
+      drawLine(sampleCT, "black",5,  x, y, x, y + districtSize)
     }
   }
-  console.innerText = allDistrict[4].y
-  
   function randomColor() {
     return "#" + (Math.floor(Math.random() * 16777215).toString(16));
   }
-  
   function drawLine(ctx, color, width, x1, y1, x2, y2) {
     ctx.lineWidth = width;
     ctx.strokeStyle = color;
@@ -108,17 +109,24 @@ const sample = document.getElementById("canvas1")
     ctx.lineTo(x2, y2);
     ctx.stroke();
   }
+  function updateColor() {
+    console.innerText="jigs up"
+    for (let i = 0; i < allDistrict.length; i++) {
+      let district = allDistrict[i];
+      for (let Pix = 0; Pix < district.allPixel.length; index++) {
+        let CurntPxl = district.allPixel[Pix];
+        sampleCT.fillStyle = CurntPxl;
+        sampleCT.fillRect(((Pix%8)*districtSize/8)+district.x,Math.floor(Pix/8*districtSize)*districtSize/8+district.y,districtSize/8,districtSize/8)
+      }
+    } console.innerText="jigs maintained"
+  }
   //Mouse stuf<lets hope this dosen't take as long as it usually dose>
-  var mouseDistX;
-  var mouseDistY;
-  var mouseDistID;
-  var mouseDrag = false;
-  
   function mousePosition(e) {
     mouseDistX = Math.floor((e.clientX - sample.offsetLeft) / (districtSize))
     mouseDistY = Math.floor((e.clientY - sample.offsetTop) / (districtSize))
     mouseDistID = (mouseDistY * 4) + mouseDistX
     mouseCON.innerHTML = " x is " + mouseDistX + " y is " + mouseDistY + mouseDrag + mouseDistID;
+    console.innerText = allDistrict.length
   }
   function mouseUp(e) {
     mouseDrag = false
@@ -130,6 +138,14 @@ const sample = document.getElementById("canvas1")
   document.onkeydown = keypress;
   function keypress(event) {
     mouseCON.innerHTML = event.key
+    switch (event.key) {
+      case "c":
+        updateColor()
+        break;
+    
+      default:
+        break;
+    }
   }
 </script>
   </body>
