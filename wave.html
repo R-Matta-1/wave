@@ -85,7 +85,9 @@ const sample = document.getElementById("canvas1")
       sampleCT.strokeText(this.idX + ',' + this.idY, this.x, this.y + 20);
       for (let y = this.x; y < districtSize; y += districtSize / 8) {
         for (let x = this.y; x < districtSize; x += districtSize / 8) {
-         this.allPixel.push("#789")
+        if ( this.allPixel.length>8*8-1) {
+           this.allPixel.push("#789")
+        } else{this.allPixel.push("black")}
         }
       }
     }
@@ -110,23 +112,26 @@ const sample = document.getElementById("canvas1")
     ctx.stroke();
   }
   function updateColor() {
-    console.innerText="jigs up"
-    for (let i = 0; i < allDistrict.length; i++) {
-      let district = allDistrict[i];
-      for (let Pix = 0; Pix < district.allPixel.length; Pix++) {
-        let CurntPxl = district.allPixel[Pix];
-        sampleCT.fillStyle = CurntPxl;
-        sampleCT.fillRect(((Pix%8)*districtSize/8)+district.x,Math.floor(Pix/8*districtSize)*districtSize/8+district.y,districtSize/8,districtSize/8)
-      }
-    } console.innerText="jigs maintained"
+  console.innerText = "jigs up"
+  for (var currentD = 0; currentD < allDistrict.length; currentD++) {
+    var district = allDistrict[currentD];
+    for (let Pix = 0; Pix < 8 * 8; Pix++) {
+      let CurntPxl = district.allPixel[Pix];
+      sampleCT.fillStyle = CurntPxl;
+      sampleCT.fillRect(((Pix % 8) * districtSize / 8) + district.x,
+        (Math.floor(Pix / 8) * districtSize / 8) + district.y,
+        districtSize / 8, districtSize / 8)
+      console.innerText = "jigs maintained " + currentD + "test"
+    }
   }
+}
   //Mouse stuf<lets hope this dosen't take as long as it usually dose>
   function mousePosition(e) {
     mouseDistX = Math.floor((e.clientX - sample.offsetLeft) / (districtSize))
     mouseDistY = Math.floor((e.clientY - sample.offsetTop) / (districtSize))
-    mouseDistID = (mouseDistY * 4) + mouseDistX
+    mouseDistID = (mouseDistY * 4) + mouseDistX;
     mouseCON.innerHTML = " x is " + mouseDistX + " y is " + mouseDistY + mouseDrag + mouseDistID;
-    console.innerText = allDistrict.length
+    console.innerText = allDistrict[0].allPixel.length
   }
   function mouseUp(e) {
     mouseDrag = false
