@@ -71,6 +71,9 @@ const sample = document.getElementById("canvas1")
   var mouseDistX=0;
   var mouseDistY=0;
   var mouseDistID=0;
+  var mousePixelX=0;
+  var mousePixelY=0;
+  var mousePixelID=0;
   var mouseDrag = false;
  
   class district {
@@ -83,9 +86,9 @@ const sample = document.getElementById("canvas1")
       this.allPixel = []
    
       sampleCT.strokeText(this.idX + ',' + this.idY, this.x, this.y + 20);
-      for (let y = this.x; y < districtSize; y += districtSize / 8) {
-        for (let x = this.y; x < districtSize; x += districtSize / 8) {
-        if ( this.allPixel.length>8*8-1) {
+      for (let y = 0; y < districtSize; y += districtSize / 8) {
+        for (let x = 0; x < districtSize; x += districtSize / 8) {
+        if ( this.allPixel.length%2==0||Math.floor(this.allPixel.length/8)%2==0) {
            this.allPixel.push("#789")
         } else{this.allPixel.push("black")}
         }
@@ -95,8 +98,6 @@ const sample = document.getElementById("canvas1")
   for (let y = 0; y < sample.clientHeight; y += districtSize) {
     for (let x = 0; x < sample.clientWidth; x += districtSize) {
       allDistrict.push(new district(x / districtSize, y / districtSize, x, y, districtSize - 1))
-    
-
       drawLine(sampleCT, "black",5, x, y, x + districtSize, y)
       drawLine(sampleCT, "black",5,  x, y, x, y + districtSize)
     }
@@ -129,9 +130,13 @@ const sample = document.getElementById("canvas1")
   function mousePosition(e) {
     mouseDistX = Math.floor((e.clientX - sample.offsetLeft) / (districtSize))
     mouseDistY = Math.floor((e.clientY - sample.offsetTop) / (districtSize))
-    mouseDistID = (mouseDistY * 4) + mouseDistX;
-    mouseCON.innerHTML = " x is " + mouseDistX + " y is " + mouseDistY + mouseDrag + mouseDistID;
-    console.innerText = allDistrict[0].allPixel.length
+    mouseDistID = (mouseDistY * (400/districtSize)) + mouseDistX;
+    //pixeltime
+    mousePixelX = Math.floor(((e.clientX - sample.offsetLeft)) / (districtSize/8))-mouseDistX*8
+    mousePixelY = Math.floor(((e.clientY - sample.offsetTop)) / (districtSize/8))-mouseDistY*8
+    mousePixelID = (mousePixelY * (districtSize/(districtSize/8))) + mousePixelX;
+    mouseCON.innerHTML = "mouse Distruct id "+ mouseDistID + " mouse Pixel id "+mousePixelID+" thePixelX "+mousePixelX+" thePixelY "+mousePixelY;
+    console.innerText = allDistrict[1].allPixel.length
   }
   function mouseUp(e) {
     mouseDrag = false
