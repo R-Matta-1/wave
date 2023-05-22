@@ -167,7 +167,11 @@ baseY =  e.clientY - sample.offsetTop;
     if(mousePixelID+8<64){ allDistrict[mouseDistID].allPixel[mousePixelID+8] = selectedColor} else{allDistrict[mouseDistID+(400/districtSize)].allPixel[mousePixelID-8*7] = selectedColor}
     if((mousePixelID+1)%8>mousePixelID%8){ allDistrict[mouseDistID].allPixel[mousePixelID+1] = selectedColor} else{ allDistrict[mouseDistID+1].allPixel[mousePixelID-7] = selectedColor}
      if((mousePixelID-1)%8<mousePixelID%8){ allDistrict[mouseDistID].allPixel[mousePixelID-1] = selectedColor} else{allDistrict[mouseDistID-1].allPixel[mousePixelID+7] = selectedColor}
-   }
+     selectedColor = colors.value
+        
+        updateColor()
+        console.innerHTML = selectedColor
+    }
   }
   function mouseUp(e) {
     mouseDrag = false
@@ -194,21 +198,22 @@ baseY =  e.clientY - sample.offsetTop;
         allDistrict[index].allPixel[P] = text.value.split("]")[index].split(",")[P]
       }
     }
+    updateColor()
   }
+ 
   document.onkeydown = keypress;
   function keypress(event) {
     var recentKey = event.key
     mouseCON.innerHTML = event.key
     switch (event.key) {
       case " ":
-       var inter= setInterval(() => {
-        selectedColor = colors.value
-        
-        updateColor()
-        console.innerHTML = selectedColor
-       }, 500); 
+      
         break;
-    
+        case "ArrowRight":
+        var inter= setInterval(() => {
+       
+       }, 500); 
+      break;
       default:
         break;
     }
