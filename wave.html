@@ -32,9 +32,11 @@
       justify-content: center;
     }
     #console {
+      position: absolute;
       left: 50px;
-      top: 500px;
+      top: 440px;
     }
+    #mouseCON{margin-top: 50px;}
     </style>
 
   </head>
@@ -49,10 +51,25 @@
       <canvas id="canvas2"width= "400px" height= "400px"></canvas>
       </div>
     <div id="toolBox" width= "400px" height= "75px">
-
+      <label for="colors">colors:</label>
+      <select name="colors" id="colors">
+        <option value="#C61111">red</option>
+        <option value="#38b000">green</option>
+        <option value="#122CC6">blue</option>
+        <option value="#000">black</option>
+        <option value="#fff">white</option>
+      </select>
+<input id="noDg" type="text">
+<input type="button" value="digit" onclick="digitize()">
+<input type="button" value="apply" onclick="apply()">
       <p id="mouseCON">mouseCON</p>
     </div>
+    
 <script >
+  const text = document.getElementById("noDg")
+  text.value = "#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff]#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111]#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#C61111,#fff,#fff,#fff,#C61111,#C61111,#C61111,#C61111,#C61111]#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#fff,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111]#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111]#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#fff,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#C61111]#fff,#fff,#fff,#C61111,#C61111,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]"
+  const colors = document.getElementById("colors")
+  var selectedColor;
 const sample = document.getElementById("canvas1")
   const sampleCT = sample.getContext('2d')
   sampleCT.translate(0.5, 0.5)
@@ -74,6 +91,8 @@ const sample = document.getElementById("canvas1")
   var mousePixelX=0;
   var mousePixelY=0;
   var mousePixelID=0;
+  var baseX;
+  var baseY;
   var mouseDrag = false;
  
   class district {
@@ -88,9 +107,7 @@ const sample = document.getElementById("canvas1")
       sampleCT.strokeText(this.idX + ',' + this.idY, this.x, this.y + 20);
       for (let y = 0; y < districtSize; y += districtSize / 8) {
         for (let x = 0; x < districtSize; x += districtSize / 8) {
-        if ( this.allPixel.length%2==0||Math.floor(this.allPixel.length/8)%2==0) {
-           this.allPixel.push("#789")
-        } else{this.allPixel.push("black")}
+          this.allPixel.push("#fff")
         }
       }
     }
@@ -113,6 +130,8 @@ const sample = document.getElementById("canvas1")
     ctx.stroke();
   }
   function updateColor() {
+    sampleCT.fillStyle="#000"
+    sampleCT.fillRect(0,0,400,400)
   console.innerText = "jigs up"
   for (var currentD = 0; currentD < allDistrict.length; currentD++) {
     var district = allDistrict[currentD];
@@ -121,22 +140,34 @@ const sample = document.getElementById("canvas1")
       sampleCT.fillStyle = CurntPxl;
       sampleCT.fillRect(((Pix % 8) * districtSize / 8) + district.x,
         (Math.floor(Pix / 8) * districtSize / 8) + district.y,
-        districtSize / 8, districtSize / 8)
+        (districtSize / 8)-1, (districtSize / 8)-1)
       console.innerText = "jigs maintained " + currentD + "test"
     }
+  drawLine(sampleCT,"black",5,districtSize*currentD,(districtSize*currentD)+districtSize,districtSize*currentD,districtSize*currentD)
+  drawLine(sampleCT,"black",5,districtSize*currentD,districtSize*currentD,districtSize*currentD,(districtSize*currentD)+districtSize)
   }
+
 }
   //Mouse stuf<lets hope this dosen't take as long as it usually dose>
   function mousePosition(e) {
-    mouseDistX = Math.floor((e.clientX - sample.offsetLeft) / (districtSize))
-    mouseDistY = Math.floor((e.clientY - sample.offsetTop) / (districtSize))
+baseX = e.clientX - sample.offsetLeft;
+baseY =  e.clientY - sample.offsetTop;
+    mouseDistX = Math.floor(baseX / (districtSize))
+    mouseDistY = Math.floor(baseY / (districtSize))
     mouseDistID = (mouseDistY * (400/districtSize)) + mouseDistX;
     //pixeltime
-    mousePixelX = Math.floor(((e.clientX - sample.offsetLeft)) / (districtSize/8))-mouseDistX*8
-    mousePixelY = Math.floor(((e.clientY - sample.offsetTop)) / (districtSize/8))-mouseDistY*8
-    mousePixelID = (mousePixelY * (districtSize/(districtSize/8))) + mousePixelX;
+    mousePixelX = Math.floor(baseX / (districtSize/8))-mouseDistX*8
+    mousePixelY = Math.floor(baseY / (districtSize/8))-mouseDistY*8
+    mousePixelID = (mousePixelY * 8) + mousePixelX;
     mouseCON.innerHTML = "mouse Distruct id "+ mouseDistID + " mouse Pixel id "+mousePixelID+" thePixelX "+mousePixelX+" thePixelY "+mousePixelY;
     console.innerText = allDistrict[1].allPixel.length
+   if (mouseDrag||recentKey=="c") {
+     allDistrict[mouseDistID].allPixel[mousePixelID] = selectedColor
+    if(mousePixelID-8>0){ allDistrict[mouseDistID].allPixel[mousePixelID-8] = selectedColor} else{allDistrict[mouseDistID-(400/districtSize)].allPixel[mousePixelID+8*7] = selectedColor}
+    if(mousePixelID+8<64){ allDistrict[mouseDistID].allPixel[mousePixelID+8] = selectedColor} else{allDistrict[mouseDistID+(400/districtSize)].allPixel[mousePixelID-8*7] = selectedColor}
+    if((mousePixelID+1)%8>mousePixelID%8){ allDistrict[mouseDistID].allPixel[mousePixelID+1] = selectedColor} else{ allDistrict[mouseDistID+1].allPixel[mousePixelID-7] = selectedColor}
+     if((mousePixelID-1)%8<mousePixelID%8){ allDistrict[mouseDistID].allPixel[mousePixelID-1] = selectedColor} else{allDistrict[mouseDistID-1].allPixel[mousePixelID+7] = selectedColor}
+   }
   }
   function mouseUp(e) {
     mouseDrag = false
@@ -144,13 +175,38 @@ const sample = document.getElementById("canvas1")
   function mouseDown(e) {
     mouseDrag = true
   }
-  
+  function digitize() {
+    let gay;
+    for (let index = 0; index < allDistrict.length; index++) {
+      let crntDist = allDistrict[index];
+      if(index==0){gay= crntDist.allPixel} else{gay+= crntDist.allPixel}
+      
+      gay+="]"
+    }
+ text.value= gay
+  }
+
+  function apply() {
+    for (let index = 0; index < allDistrict.length; index++) {
+      let crntDist = allDistrict[index];
+      for (let P = 0; P < crntDist.allPixel.length; P++) {
+        let pixel = crntDist.allPixel[P];
+        allDistrict[index].allPixel[P] = text.value.split("]")[index].split(",")[P]
+      }
+    }
+  }
   document.onkeydown = keypress;
   function keypress(event) {
+    var recentKey = event.key
     mouseCON.innerHTML = event.key
     switch (event.key) {
-      case "c":
+      case " ":
+       var inter= setInterval(() => {
+        selectedColor = colors.value
+        
         updateColor()
+        console.innerHTML = selectedColor
+       }, 500); 
         break;
     
       default:
