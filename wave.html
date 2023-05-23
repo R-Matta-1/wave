@@ -62,12 +62,13 @@
 <input id="noDg" type="text">
 <input type="button" value="digit" onclick="digitize()">
 <input type="button" value="apply" onclick="apply()">
+<input type="button" value="begin" onclick="begin()">
       <p id="mouseCON">mouseCON</p>
     </div>
     
 <script >
   const text = document.getElementById("noDg")
-  text.value = "#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff]#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111]#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#C61111,#fff,#fff,#fff,#C61111,#C61111,#C61111,#C61111,#C61111]#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#fff,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111]#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111]#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#fff,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#C61111]#fff,#fff,#fff,#C61111,#C61111,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#C61111,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#C61111,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]"
+  text.value = "#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#122CC6,#fff,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#fff,#122CC6,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#fff,#122CC6,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#122CC6,#fff,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#000,#fff,#000,#fff,#fff,#fff,#fff,#000,#000,#000,#000,#000,#fff,#fff,#fff,#000,#000,#000,#000,#000,#fff,#fff,#fff,#fff,#000,#000,#000,#fff,#fff,#fff,#fff,#fff,#fff,#000,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff]#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#fff,#122CC6,#fff,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff,#fff,#122CC6,#122CC6,#122CC6,#fff,#fff,#fff,#fff]"
   const colors = document.getElementById("colors")
   var selectedColor;
 const sample = document.getElementById("canvas1")
@@ -77,14 +78,16 @@ const sample = document.getElementById("canvas1")
   const generator = document.getElementById("canvas2")
   const genCT = generator.getContext('2d')
   genCT.translate(0.5, 0.5)
-  genCT.font = "10px monospace";
+  genCT.font = "30px Verdana ";
   //rip old toolbox, changed for very profesional reasons
   const console = document.getElementById("console")
   const mouseCON = document.getElementById("mouseCON")
-  const districtSize = 400 / 4
+  var districtSize = 400 / 4
+  var generatSize = districtSize/2
   const districtBorder = 3
   const pixelBorder = 1
   var allDistrict = []
+  var allGen = []
   var mouseDistX=0;
   var mouseDistY=0;
   var mouseDistID=0;
@@ -94,34 +97,71 @@ const sample = document.getElementById("canvas1")
   var baseX;
   var baseY;
   var mouseDrag = false;
- 
   class district {
-    constructor(idX, idY, x, y, size) {
-      this.idX = idX
-      this.idY = idY
-      this.x = x
-      this.y = y
-      this.size = size
-      this.allPixel = []
-   
-      sampleCT.strokeText(this.idX + ',' + this.idY, this.x, this.y + 20);
-      for (let y = 0; y < districtSize; y += districtSize / 8) {
-        for (let x = 0; x < districtSize; x += districtSize / 8) {
-          this.allPixel.push("#fff")
-        }
+  constructor(idX, idY, x, y, size) {
+    this.idX = idX
+    this.idY = idY
+    this.x = x
+    this.y = y
+    this.size = size
+    this.allPixel = []
+    sampleCT.strokeText(this.idX + ',' + this.idY, this.x+5, this.y + 30);
+    for (let y = 0; y < districtSize; y += districtSize / 8) {
+      for (let x = 0; x < districtSize; x += districtSize / 8) {
+        this.allPixel.push("#fff")
       }
     }
   }
-  for (let y = 0; y < sample.clientHeight; y += districtSize) {
+}
+class generat {
+  constructor(idX, idY, x, y, size) {
+    this.idX = idX
+    this.idY = idY
+    this.x = x
+    this.y = y
+    this.size = size
+  this.options = allDistrict
+    genCT.strokeText(this.options.length, this.x, this.y + 30)
+  }
+  update() {
+
+      drawLine(genCT, "black",4,  this.x, this.y,this.x+generatSize, this.y)
+      drawLine(genCT, "black",4,  this.x, this.y,this.x, this.y+generatSize)
+
+//    if (this.options.length <= 1||this.options.length == undefined) {
+      for (let y = 0; y < generatSize; y += generatSize / 8) {
+      for (let x = 0; x < generatSize; x += generatSize / 8) {
+      let cp = this.options[13].allPixel[(y*8)+x]
+       genCT.fillStyle = cp;
+//genCT.fillRect(this.x+(x),this.y+(y),generatSize / 8,generatSize / 8)
+      } } genCT.strokeText(this.options.length, this.x, this.y + 30)
+  //  } else { }
+  }
+}
+
+function begin() {
+  genCT.clearRect(0,0,400,400)
+ 
+  for (let i = 0; i < allGen.length; i++) {
+    allGen[i].update()
+    mouseCON.innerHTML = i
+  }
+}
+
+  for (let y = 0; y < generator.clientHeight; y += districtSize) {
     for (let x = 0; x < sample.clientWidth; x += districtSize) {
       allDistrict.push(new district(x / districtSize, y / districtSize, x, y, districtSize - 1))
       drawLine(sampleCT, "black",5, x, y, x + districtSize, y)
       drawLine(sampleCT, "black",5,  x, y, x, y + districtSize)
     }
   }
-  function randomColor() {
-    return "#" + (Math.floor(Math.random() * 16777215).toString(16));
-  }
+  for (let y = 0; y < generator.clientHeight; y += generatSize) {
+   for (let x = 0; x < generator.clientWidth; x += generatSize) {
+     allGen.push(new generat(x / generatSize, y / generatSize, x, y, generatSize - 1))
+   //  drawLine(genCT, "black",5, x, y, x + generatSize, y)
+    // drawLine(genCT, "black",5,  x, y, x, y + generatSize)
+   }}
+
   function drawLine(ctx, color, width, x1, y1, x2, y2) {
     ctx.lineWidth = width;
     ctx.strokeStyle = color;
@@ -146,7 +186,10 @@ const sample = document.getElementById("canvas1")
   drawLine(sampleCT,"black",5,districtSize*currentD,(districtSize*currentD)+districtSize,districtSize*currentD,districtSize*currentD)
   drawLine(sampleCT,"black",5,districtSize*currentD,districtSize*currentD,districtSize*currentD,(districtSize*currentD)+districtSize)
   }
-
+//we also need to update the generat
+for (let i = 0; i < allGen.length; i++) {
+  allGen[i].options = allDistrict
+}
 }
   //Mouse stuf<lets hope this dosen't take as long as it usually dose>
   function mousePosition(e) {
@@ -162,11 +205,11 @@ baseY =  e.clientY - sample.offsetTop;
     mouseCON.innerHTML = "mouse Distruct id "+ mouseDistID + " mouse Pixel id "+mousePixelID+" thePixelX "+mousePixelX+" thePixelY "+mousePixelY;
     console.innerText = allDistrict[1].allPixel.length
    if (mouseDrag||recentKey=="c") {
-     allDistrict[mouseDistID].allPixel[mousePixelID] = selectedColor
-    if(mousePixelID-8>0){ allDistrict[mouseDistID].allPixel[mousePixelID-8] = selectedColor} else{allDistrict[mouseDistID-(400/districtSize)].allPixel[mousePixelID+8*7] = selectedColor}
-    if(mousePixelID+8<64){ allDistrict[mouseDistID].allPixel[mousePixelID+8] = selectedColor} else{allDistrict[mouseDistID+(400/districtSize)].allPixel[mousePixelID-8*7] = selectedColor}
-    if((mousePixelID+1)%8>mousePixelID%8){ allDistrict[mouseDistID].allPixel[mousePixelID+1] = selectedColor} else{ allDistrict[mouseDistID+1].allPixel[mousePixelID-7] = selectedColor}
-     if((mousePixelID-1)%8<mousePixelID%8){ allDistrict[mouseDistID].allPixel[mousePixelID-1] = selectedColor} else{allDistrict[mouseDistID-1].allPixel[mousePixelID+7] = selectedColor}
+     allDistrict[mouseDistID].allPixel[mousePixelID] = selectedColor 
+    if(mousePixelID-8>0){ allDistrict[mouseDistID].allPixel[mousePixelID-8] = selectedColor} //else{allDistrict[mouseDistID-(400/districtSize)].allPixel[mousePixelID+8*7] = selectedColor}
+    if(mousePixelID+8<64){ allDistrict[mouseDistID].allPixel[mousePixelID+8] = selectedColor} //else{allDistrict[mouseDistID+(400/districtSize)].allPixel[mousePixelID-8*7] = selectedColor}
+    if((mousePixelID+1)%8>mousePixelID%8){ allDistrict[mouseDistID].allPixel[mousePixelID+1] = selectedColor} //else{ allDistrict[mouseDistID+1].allPixel[mousePixelID-7] = selectedColor}
+     if((mousePixelID-1)%8<mousePixelID%8){ allDistrict[mouseDistID].allPixel[mousePixelID-1] = selectedColor}// else{allDistrict[mouseDistID-1].allPixel[mousePixelID+7] = selectedColor}
      selectedColor = colors.value
         
         updateColor()
@@ -200,7 +243,9 @@ baseY =  e.clientY - sample.offsetTop;
     }
     updateColor()
   }
- 
+ function random(min,max) {
+  return Math.floor((Math.random() * (max-min)) + min)
+ }
   document.onkeydown = keypress;
   function keypress(event) {
     var recentKey = event.key
