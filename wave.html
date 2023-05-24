@@ -125,17 +125,34 @@ class generat {
   }
   update() {
 
-      drawLine(genCT, "black",4,  this.x, this.y,this.x+generatSize, this.y)
-      drawLine(genCT, "black",4,  this.x, this.y,this.x, this.y+generatSize)
+      drawLine(genCT, "black",1,  this.x, this.y,this.x+generatSize, this.y)
+      drawLine(genCT, "black",1,  this.x, this.y,this.x, this.y+generatSize)
+      genCT.strokeText(this.x, this.x, this.y + 30)
 
-//    if (this.options.length <= 1||this.options.length == undefined) {
+    if (this.options.length <= 1||this.options.length == undefined) {
       for (let y = 0; y < generatSize; y += generatSize / 8) {
       for (let x = 0; x < generatSize; x += generatSize / 8) {
-      let cp = this.options[13].allPixel[(y*8)+x]
+      let cp = this.options[0].allPixel[((y/(generatSize / 8))*8)+(x/(generatSize / 8))]
        genCT.fillStyle = cp;
-//genCT.fillRect(this.x+(x),this.y+(y),generatSize / 8,generatSize / 8)
-      } } genCT.strokeText(this.options.length, this.x, this.y + 30)
-  //  } else { }
+genCT.fillRect(this.x+(x),this.y+(y),generatSize / 8,generatSize / 8) } }
+   } else {/*
+//up
+if (condition) {
+  
+}
+//down
+if (condition) {
+  
+}
+//left 
+if (condition) {
+  
+}
+//right
+if (condition) {
+  
+}*/
+    }
   }
 }
 
