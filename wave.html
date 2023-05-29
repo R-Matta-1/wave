@@ -135,46 +135,60 @@ class generat {
 if (times==0) {
   this.options = single(this.options, random(0,this.options.length))
 } 
-genCT.strokeText(this.idY, this.x, this.y + 30)
+genCT.strokeText(this.options.length, this.x, this.y + 30)
 
-    if (this.options.length <= 1||this.options.length == undefined) {
+    if (this.options.length == 1||this.options.length == undefined) {
       for (let y = 0; y < generatSize; y += generatSize / 8) {
       for (let x = 0; x < generatSize; x += generatSize / 8) {
       let cp = this.options[0].allPixel[((y/(generatSize / 8))*8)+(x/(generatSize / 8))]
        genCT.fillStyle = cp;
 genCT.fillRect(this.x+x,this.y+y,(generatSize / 8)+1,(generatSize / 8)+1) } }
-   } else {
+   } 
+   //draw else if more then 2
+   else {
      for (let c = 0; c < this.options.length; c++) {
       let selfOpt = this.options[c]
+      let valid = 0
 //up
 if (this.idY>0) {
 for (let i = 0; i < allGen[this.id-8].options.length; i++) {
  let altOpt = allGen[this.id-8].options[i];
-  
+ if (altOpt.allPixel[60]==selfOpt.allPixel[4]) {
+    valid++
+  }
 }
 }
 //down
 if (this.idY<7) {
   for (let i = 0; i < allGen[this.id+8].options.length; i++) {
- let altOpt = allGen[this.id+8].options;
-  
+ let altOpt = allGen[this.id+8].options[i];
+ if (altOpt.allPixel[4]==selfOpt.allPixel[60]) {
+    valid++
+  }
 }
-}
+} 
 //left
 if (this.idX>0) {
   for (let i = 0; i < allGen[this.id-1].options.length; i++) {
- let altOpt = allGen[this.id-1].options;
-  
+ let altOpt = allGen[this.id-1].options[i];
+ if (altOpt.allPixel[31]==selfOpt.allPixel[24]) {
+    valid++
+  }
 }
 }
 //right
 if (this.idX <7) {
   for (let i = 0; i < allGen[this.id+1].options.length; i++) {
- let altOpt = allGen[this.id+1].options;
-  
-}
-}
+ let altOpt = allGen[this.id+1].options[i];
+  if (altOpt.allPixel[24]==selfOpt.allPixel[31]) {
+    valid++
+  }}}
+  if (valid==0 && this.options.length>1) {
+    this.options.splice(c, 1)
+    c--
+  }
  }
+////
     }
   }
 }
