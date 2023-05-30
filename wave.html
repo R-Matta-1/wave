@@ -185,7 +185,7 @@ genCT.fillRect(this.x+x,this.y+y,(generatSize / 8)+1,(generatSize / 8)+1) } }
         leftValid++
     } }
   } else {leftValid++}
-  //right
+  //rightv
   if (this.idX < 7) {
     for (let i = 0; i < frame[this.id + 1].options.length; i++) {
       let altOpt = frame[this.id + 1].options[i];
@@ -194,24 +194,30 @@ genCT.fillRect(this.x+x,this.y+y,(generatSize / 8)+1,(generatSize / 8)+1) } }
       }
     }
   } else {rightValid++}
-
+  allDistrict = fuckShit 
+// this means 'if any of u are invalid'
  if (upValid == 0 || downValid == 0 || leftValid == 0 || rightValid == 0) {
-   this.options.splice(c, 1)
+  ///redo remake not erase not erase not erebjdk
+   this.options  = 
    c--
  }
-
+ 
   //if (this.options.length > 1) {
-  //  this.options = single(this.options, random(0, this.options.length))
- // }
+   // this.options = single(this.options, random(0, this.options.length))
+  //}
+ // allDistrict = fuckShit
 }genCT.strokeText(this.options.length, this.idX, this.idY + 30)
 ////
 }
+
   }
 }
 var times=0
 var frame =[]
+var fuckShit;
 function begin() {
   genCT.clearRect(0,0,400,400)
+  fuckShit = allDistrict
   frame =[]
 for (let i = 0; i < allGen.length; i++) {
   let cr = allGen[i];
@@ -223,7 +229,7 @@ for (let i = 0; i < allGen.length; i++) {
     times++
     mouseCON.innerHTML = times
   }
-  
+  console.innerHTML = fuckShit.length+"and district"+allDistrict.length
 }
 
   for (let y = 0; y < generator.clientHeight; y += districtSize) {
