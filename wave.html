@@ -197,8 +197,8 @@ genCT.fillRect(this.x+x,this.y+y,(generatSize / 8)+1,(generatSize / 8)+1) } }
   allDistrict = fuckShit 
 // this means 'if any of u are invalid'
  if (upValid == 0 || downValid == 0 || leftValid == 0 || rightValid == 0) {
-  ///redo remake not erase not erase not erebjdk
-   this.options  = 
+  ///rWE DO NOT USE SPLICING HERE<<<< SPLICING AS CAISED A 3 DAY ROADBLOCK< NO MORE SPLICING
+   this.options  = arraying(this.options,c)
    c--
  }
  
@@ -211,6 +211,17 @@ genCT.fillRect(this.x+x,this.y+y,(generatSize / 8)+1,(generatSize / 8)+1) } }
 }
 
   }
+}
+function arraying(arr,num) {
+  let gay = []
+  for (let i = 0; i < arr.length; i++) {
+    let cur = arr[i];
+    if (i == num) {
+      continue
+    }
+    gay.push(arr[i])
+  }
+  return gay
 }
 var times=0
 var frame =[]
